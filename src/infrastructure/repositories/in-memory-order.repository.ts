@@ -7,4 +7,8 @@ export const inMemoryOrderRepository: OrderRepository = {
   async save(order: Order): Promise<void> {
     orders.set(order.id, order);
   },
+
+  async findById(id: string): Promise<Order | null> {
+    return orders.get(id) ?? null;
+  }
 };
